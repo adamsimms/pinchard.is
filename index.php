@@ -48,13 +48,20 @@
 
 <body id="page-top">
 <?php
+
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
         ini_set('allow_url_fopen', 'on');
+    include('functions_inc.php');
+
+
 
     if (isset($_GET['fn']) && !empty($_GET['fn'])) {
         $filename = $_GET['fn'];
     }
     //get array start
-    $cdnurl = 'http://d3kq73uimqeic8.cloudfront.net/';
+    /*$cdnurl = 'http://d3kq73uimqeic8.cloudfront.net/';
 
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $cdnurl);
@@ -89,7 +96,9 @@
                         );
             }
         }
-    }
+    }*/
+
+    $array = getObjectList("shutter-island");
     usort($array, function($a, $b) {
         return $a['date'] > $b['date'];
     });
@@ -117,9 +126,14 @@
     // echo "filename = " . $filename;
 
     // require_once('vender/aws/S3.php');
-    require 'vendor/aws/S3.php';
-    $s3 = new S3('AKIAINXBPMZES7BVO7GA', 'EJ7GIrkLv6IU/jaa0V5uNoXQLdZhiB25nm84AlWH');
-    $result_1 = $s3->getObject('shutter-island',$filename, "./photo/tmp.jpg"  );
+    //require 'vendor/aws/S3.php';
+    //$s3 = new S3('AKIAINXBPMZES7BVO7GA', 'EJ7GIrkLv6IU/jaa0V5uNoXQLdZhiB25nm84AlWH');
+    //$result_1 = $s3->getObject('shutter-island',$filename, "./photo/tmp.jpg"  );
+    $result_1 = $s3->getObject(array(
+        'Bucket' => "shutter-island",
+        'Key'    => $filename,
+        'SaveAs' =>"./photo/tmp.jpg",
+    ));
     $exif = exif_read_data("./photo/tmp.jpg", 0, true);
 
 
