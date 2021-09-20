@@ -2,7 +2,7 @@
 
 //require_once('vender/aws/S3.php');
 //require 'vendor/aws/S3.php';
-//$s3 = new S3('AKIAINXBPMZES7BVO7GA', 'EJ7GIrkLv6IU/jaa0V5uNoXQLdZhiB25nm84AlWH');
+//$s3 = new S3('KEY', 'SECRET');
 // 
 //$bucket_contents = $s3->getBucket('shutter-island');
 //foreach ($bucket_contents as $file){
