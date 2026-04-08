@@ -414,7 +414,7 @@
     <!-- Theme JavaScript -->
     <script src="js/pinchard.min.js"></script>
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB8lvMmq3uGYrxxUPsBIfjeeNGDqKLeqMo&callback=myMap"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBqlVmat_O4umwmEB1XA1k6sVGEr17aAs&callback=myMap"></script>
 
     <script>
         $(document).ready(function() {
